@@ -8,13 +8,13 @@ tools{
            stages{
            stage (“checkout”)
          {
-        Steps{
+        steps{
              git 'https://github.com/Soumyajit-Rout/jenkins_mvn.git'
         }
-  Stage (“compile”)
+  stage (“compile”)
 {
-Steps{
-Sh  ‘mvn compile’
+steps{
+sh  ‘mvn compile’
 }
 }
 }
