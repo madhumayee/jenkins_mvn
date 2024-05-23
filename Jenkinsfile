@@ -1,27 +1,29 @@
-Pipeline
-{
-tools{
-          jdk ‘JAVA_HOME’
-          maven ‘M2_HOME’
+pipeline {
+    tools {
+        jdk 'JAVA_HOME'
+        maven 'M2_HOME'
+    }
+    agent any
+    stages {
+        stage('checkout') {
+            steps {
+                git 'https://github.com/Soumyajit-Rout/jenkins_maven_demo.git'
+            }
         }
-      agent  any
-           stages{
-           stage (“checkout”)
-         {
-        steps{
-             git 'https://github.com/Soumyajit-Rout/jenkins_mvn.git'
+        stage('compile') {
+            steps {
+                sh 'mvn compile'
+            }
         }
-  stage (“compile”)
-{
-steps{
-sh  ‘mvn compile’
-}
-}
- stage (“package”)
-{
-steps{
-sh  ‘mvn package’
-}
-}
-}
+       stage('package'){
+           steps {
+                sh 'mvn package'
+            }
+        }
+       stage('install'){
+           steps {
+                sh 'mvn install'
+            }
+        }
+    }
 }
