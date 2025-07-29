@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/Soumyajit-Rout/jenkins_maven_demo.git'
+                git 'https://github.com/madhumayee/jenkins_mvn.git'
             }
         }
         stage('compile') {
